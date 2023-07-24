@@ -1,5 +1,6 @@
-import Navigation from "@/components/Navigation";
 import "./globals.css";
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 
 export const metadata = {
   title: "Shortly",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );
