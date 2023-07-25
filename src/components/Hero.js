@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col mb-32 md:flex-row-reverse md:items-center justify-between">
+    <section className="flex flex-col mb-40 md:flex-row-reverse md:items-center justify-between">
       <div>
         <Image
           src={illustration}
