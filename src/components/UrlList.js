@@ -3,8 +3,15 @@
 import { useState } from "react";
 
 const UrlList = ({ urlList }) => {
-  const copyToClipboard = async (url) => {
+  const copyToClipboard = async (url, target) => {
     await navigator.clipboard.writeText(url);
+    console.log(target);
+    target.innerText = "Copied!";
+    target.disabled = true;
+    setTimeout(() => {
+      target.innerText = "Copy";
+      target.disabled = false;
+    }, 5000);
   };
 
   return (
@@ -22,8 +29,8 @@ const UrlList = ({ urlList }) => {
               {url.short}
             </p>
             <button
-              onClick={() => copyToClipboard(url.short)}
-              className="bg-cyan text-white py-4 px-10 rounded-md hover:brightness-150 duration-200 w-full md:w-min"
+              onClick={(e) => copyToClipboard(url.short, e.target)}
+              className="bg-cyan text-white py-4 px-10 rounded-md hover:brightness-150 duration-300 w-full md:w-min disabled:bg-darkViolet"
             >
               Copy
             </button>
