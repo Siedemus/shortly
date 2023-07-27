@@ -1,4 +1,12 @@
+"use client";
+
+import { useState } from "react";
+
 const UrlList = ({ urlList }) => {
+  const copyToClipboard = async (url) => {
+    await navigator.clipboard.writeText(url);
+  };
+
   return (
     <ul className="w-[1070px] pb-32 pt-5 flex gap-5 mx-3 flex-col">
       {urlList.map((url) => (
@@ -13,7 +21,10 @@ const UrlList = ({ urlList }) => {
             <p className="text-cyan text-lg text-left md:text-center w-full md:w-min">
               {url.short}
             </p>
-            <button className="bg-cyan text-white py-4 px-10 rounded-md hover:brightness-150 duration-200 w-full md:w-min">
+            <button
+              onClick={() => copyToClipboard(url.short)}
+              className="bg-cyan text-white py-4 px-10 rounded-md hover:brightness-150 duration-200 w-full md:w-min"
+            >
               Copy
             </button>
           </div>
